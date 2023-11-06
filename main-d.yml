@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Stop and remove Docker containers
+      community.docker.docker_container:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - "{{ ['php_fpm1', 'php_fpm2'] }}"
+        - "{{ ['server1', 'server2'] }}"
+        - lb
+        - pxc_node0
+        - "{{ ['pxc_node1', 'pxc_node2'] }}"
+      ignore_errors: true
+
+    - name: Remove Docker networks
+      community.docker.docker_network:
+        name: "terra_network"
+        state: absent

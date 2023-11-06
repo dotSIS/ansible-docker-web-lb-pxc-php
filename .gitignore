@@ -7,6 +7,6 @@
 !media/
 !server-pages/
 !hosts
-!main-u.tf
-!main-d.tf
+!main-u.yml
+!main-d.yml
 !README.md
