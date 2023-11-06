@@ -1,0 +1,12 @@
+# Skip all files
+/*
+
+# Except for
+!.gitignore
+!custom-configs/
+!media/
+!server-pages/
+!hosts
+!main-u.tf
+!main-d.tf
+!README.md
