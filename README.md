@@ -1,10 +1,10 @@
 <div class="info">
     <p align='center'>
-        <img src="https://raw.githubusercontent.com/dotSIS/terraform-docker-web-lb-pxc-php/main/media/terra_network.jpg">
+        <img src="https://raw.githubusercontent.com/dotSIS/ansible-docker-web-lb-pxc-php/main/media/terra_network.jpg">
     </p>
 </div>
 
-# My terraformed docker network.
+# My ansibled docker network.
 
 ## Network specs:
 - Load balancer:    Nginx
@@ -14,16 +14,17 @@
 ## Requirements:
 Click the links for the instructions on how to install each of the tools on your machine.
 - Virtualization:   [`Docker`](https://docs.docker.com/get-docker/)
-- CMT:              [`Terraform`](https://developer.hashicorp.com/terraform/downloads)
+- CMT:              [`Ansible`](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
 ## Clone
-- `git clone https://github.com/dotSIS/terraform-docker-web-lb-pxc-php.git`
+- `git clone https://github.com/dotSIS/ansible-docker-web-lb-pxc-php.git`
 ## Installation & Deployment
   ### Part 1 - Deploy load balancer, reverse proxy, php servers, & database bootstrap
-  - `terraform init`
-  - `terraform apply`
+  - `ansible-playbook -i hosts main-u.yml -K`
   ### Part 2 - Deploy joiner databases
-  - Uncomment last resource on `main.tf`
-  - `terraform apply`
+  - Uncomment last resource on `main-u.yml`
+  - `ansible-playbook -i hosts main-u.yml -K`
   ### Part 3 - Web
   - Visit `http://localhost:8080` on your browser.
+  ### Part 4 - Undeploy
+  - `ansible-playbook -i hosts main-d.yml -K`
